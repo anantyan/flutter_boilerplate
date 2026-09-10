@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'app.dart';
+import 'di/injection.dart';
+import 'presentation/theme/theme_bloc.dart';
+import 'presentation/theme/theme_event.dart';
 
-void main() {
-  runApp(const MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
+  getIt<ThemeBloc>().add(const LoadInitialThemeEvent());
+  runApp(App());
 }

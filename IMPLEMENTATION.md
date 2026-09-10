@@ -23,6 +23,7 @@
 * **Phase 2 Completed:** Added dependencies (`flutter_bloc`, `equatable`, `auto_route`, `get_it`, `injectable`, `dio`, `dartz`, `flutter_secure_storage`, `intl`, `mocktail`, `bloc_test`). Configured `AppColors`, `AppTextStyles`, `AppTheme` (Light & Dark), `ISecureStorageService` wrapper, and `ThemeBloc` with persistent storage. Verified with 8 passing unit tests, `dart format`, and clean `dart analyze` (0 issues).
 * **Phase 3 Completed:** Implemented domain failure abstractions (`Failure`, `ServerFailure`, `NetworkFailure`, etc.), sealed data exceptions (`NetworkException`), `ErrorHandlingInterceptor`, `DioClientFactory` (15s timeouts, auto-logging), and `get_it` + `injectable` service locator with generated `injection.config.dart`. Added 8 new unit tests (16/16 tests passing total).
 * **Phase 4 Completed:** Implemented Domain Layer (`PostItem` entity, `PostRepository` contract with `dartz` `Either<Failure, T>`, and use cases `GetPostsUseCase`, `CreatePostUseCase`, `DeletePostUseCase`). Implemented Data Layer (`PostModel` DTO, `PostRemoteDataSource` with seeded mock REST simulation, and `PostRepositoryImpl`). Generated DI wiring and added 8 unit tests (24/24 unit tests passing total).
+* **Phase 5 Completed:** Implemented Presentation Layer including `PostBloc` (with optimistic delete & failure rollback), `AutoRoute` configuration (`AppRouter` with `HomeRoute`), UI widgets (`PostItemCard`, `CreatePostBottomSheet`), and `HomeScreen` (AppBar dark/light theme switcher, pull-to-refresh, `Dismissible` swipe-left-to-delete, and FAB). Connected root `App` with `ThemeBloc` and `MaterialApp.router`. Added 19 new unit and widget tests across bloc, screens, and widgets (43/43 tests passing total), formatted with `dart format`, and verified with `dart analyze` (0 issues).
 
 ---
 
@@ -107,28 +108,28 @@
 
 ## Phase 5: Presentation Layer, AutoRoute & Interactive Gestures
 
-- [ ] Implement `PostBloc` in `lib/presentation/modules/home/bloc/`:
+- [x] Implement `PostBloc` in `lib/presentation/modules/home/bloc/`:
   - `post_event.dart`: LoadPosts, AddPost, RemovePost.
   - `post_state.dart`: Initial, Loading, Loaded(List<PostItem>), Failure(String message).
-  - `post_bloc.dart`: Event handling calling use cases and emitting updated states.
-- [ ] Configure Declarative Navigation in `lib/common/router/app_router.dart`:
+  - `post_bloc.dart`: Event handling calling use cases and emitting updated states with optimistic swipe-to-delete.
+- [x] Configure Declarative Navigation in `lib/common/router/app_router.dart`:
   - Setup `@AutoRouterConfig()` with `HomeScreen`.
-- [ ] Build UI Screens & Widgets in `lib/presentation/modules/home/`:
+- [x] Build UI Screens & Widgets in `lib/presentation/modules/home/`:
   - `widgets/post_item_card.dart`: Clean Material 3 card with status chip and formatted date.
   - `widgets/create_post_bottom_sheet.dart`: Ergonomic bottom sheet form for creating posts.
   - `screens/home_screen.dart`:
     - Top AppBar with functional Dark/Light theme switcher button.
-    - ListView with `Dismissible` (swipe left to delete with background indicator & SnackBar undo).
+    - ListView with `Dismissible` (swipe left to delete with background indicator & SnackBar notification).
     - Floating Action Button (FAB) triggering `CreatePostBottomSheet`.
     - Pull-to-refresh (`RefreshIndicator`).
-- [ ] Wire root application in `lib/app.dart` and `lib/main.dart`:
+- [x] Wire root application in `lib/app.dart` and `lib/main.dart`:
   - Wrap MaterialApp with `BlocProvider<ThemeBloc>` using `routerConfig: appRouter.config()`.
-- [ ] Run code generator: `dart run build_runner build --delete-conflicting-outputs`.
-- [ ] Write widget tests for `HomeScreen` and theme toggle.
-- [ ] Run `dart fix --apply`, `dart analyze`, and `flutter test`.
-- [ ] Run `dart format .`.
-- [ ] Update `IMPLEMENTATION.md` Journal section.
-- [ ] Present commit message to user for approval, then commit to `develop`.
+- [x] Run code generator: `dart run build_runner build --delete-conflicting-outputs`.
+- [x] Write widget tests for `HomeScreen`, `PostBloc`, `CreatePostBottomSheet`, `PostItemCard`, and `App`.
+- [x] Run `dart fix --apply`, `dart analyze`, and `flutter test`.
+- [x] Run `dart format .`.
+- [x] Update `IMPLEMENTATION.md` Journal section.
+- [x] Present commit message to user for approval, then commit to `develop`.
 
 ---
 
