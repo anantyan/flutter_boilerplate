@@ -122,8 +122,12 @@ graph TD
 ### 4. Dynamic Item Creation via Modal Bottom Sheet
 - Ergonomic Floating Action Button (FAB) at the bottom right.
 - Material 3 modal bottom sheet with input validation, title, description, and interactive status selector chips (`ChoiceChip`).
+- **SafeArea & ViewInsets Polish**: Form contents wrapped in `SafeArea(top: false)` and `SingleChildScrollView` with `MediaQuery.viewInsetsOf(context).bottom` padding to elevate cleanly above the iOS Home Indicator bar and eliminate keyboard pixel overflows.
 
-### 5. Functional Error Handling
+### 5. SafeArea & Edge-to-Edge Protection
+- Base screens (`HomeScreen`) wrap `Scaffold.body` in `SafeArea(top: false)` ensuring feed items, loading indicators, and empty placeholders are never obscured by bottom system navigation gesture bars or display cutouts.
+
+### 6. Functional Error Handling
 - Never throw unhandled exceptions across architectural boundaries!
 - Data sources produce typed `NetworkException`s.
 - Repositories catch exceptions and return `Either<Failure, T>`.
@@ -231,7 +235,7 @@ lib/
 
 ## 🧪 Testing
 
-The project is backed by comprehensive unit and widget tests across all layers (43/43 tests passing with zero warnings):
+The project is backed by comprehensive unit and widget tests across all layers (45/45 tests passing with zero warnings):
 
 ```bash
 # Run all automated tests
