@@ -72,5 +72,17 @@ void main() {
       expect(submittedBody, 'Clean up duplicate dependencies');
       expect(submittedStatus, PostStatus.pending);
     });
+
+    testWidgets(
+      'renders SafeArea and SingleChildScrollView for responsive layout',
+      (tester) async {
+        await tester.pumpWidget(
+          buildWidget(({required title, required body, required status}) {}),
+        );
+
+        expect(find.byType(SafeArea), findsOneWidget);
+        expect(find.byType(SingleChildScrollView), findsOneWidget);
+      },
+    );
   });
 }

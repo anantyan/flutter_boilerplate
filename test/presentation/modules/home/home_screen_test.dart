@@ -159,5 +159,16 @@ void main() {
 
       verify(() => mockPostBloc.add(const RemovePostEvent('1'))).called(1);
     });
+
+    testWidgets('renders SafeArea wrapping body content', (tester) async {
+      when(() => mockPostBloc.state).thenReturn(const PostLoaded(posts: []));
+
+      await tester.pumpWidget(createWidgetUnderTest());
+
+      expect(
+        find.byWidgetPredicate((widget) => widget is SafeArea && !widget.top),
+        findsOneWidget,
+      );
+    });
   });
 }

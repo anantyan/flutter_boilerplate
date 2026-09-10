@@ -23,6 +23,9 @@ This document outlines the architectural invariants, engineering conventions, an
   - Events and States must extend `Equatable` and implement `props`.
   - State classes must be immutable. Use `copyWith` for updating state properties.
   - Do not call data sources or repositories directly from UI widgets; all access must flow through BLoC use case invocations.
+  - **SafeArea & ViewInsets Discipline**:
+    - For base screens with an `AppBar`, wrap the `Scaffold.body` in `SafeArea(top: false)` to protect against bottom gesture bars and horizontal cutouts without double-insetting the top.
+    - For modal bottom sheets, do not use `useSafeArea: true` on `showModalBottomSheet` (which creates unstyled white gaps on iOS). Instead, wrap internal sheet contents in `SafeArea(top: false)` combined with `SingleChildScrollView` and `EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom)` for responsive keyboard handling.
 
 - **`lib/common/` (Shared Cross-Cutting Infrastructure)**:
   - `errors/`: Domain `Failure` and data `NetworkException` sealed classes.
