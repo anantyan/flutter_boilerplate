@@ -22,6 +22,7 @@
 * **Phase 1 Completed:** Generated Flutter app package targeting Android & iOS with application ID `dev.flutter.boilerplate.anantyan`. Configured `pubspec.yaml` version to 0.1.0, created `README.md` and `CHANGELOG.md`. Code formatted with `dart format` and verified with `dart analyze` (0 warnings).
 * **Phase 2 Completed:** Added dependencies (`flutter_bloc`, `equatable`, `auto_route`, `get_it`, `injectable`, `dio`, `dartz`, `flutter_secure_storage`, `intl`, `mocktail`, `bloc_test`). Configured `AppColors`, `AppTextStyles`, `AppTheme` (Light & Dark), `ISecureStorageService` wrapper, and `ThemeBloc` with persistent storage. Verified with 8 passing unit tests, `dart format`, and clean `dart analyze` (0 issues).
 * **Phase 3 Completed:** Implemented domain failure abstractions (`Failure`, `ServerFailure`, `NetworkFailure`, etc.), sealed data exceptions (`NetworkException`), `ErrorHandlingInterceptor`, `DioClientFactory` (15s timeouts, auto-logging), and `get_it` + `injectable` service locator with generated `injection.config.dart`. Added 8 new unit tests (16/16 tests passing total).
+* **Phase 4 Completed:** Implemented Domain Layer (`PostItem` entity, `PostRepository` contract with `dartz` `Either<Failure, T>`, and use cases `GetPostsUseCase`, `CreatePostUseCase`, `DeletePostUseCase`). Implemented Data Layer (`PostModel` DTO, `PostRemoteDataSource` with seeded mock REST simulation, and `PostRepositoryImpl`). Generated DI wiring and added 8 unit tests (24/24 unit tests passing total).
 
 ---
 
@@ -85,22 +86,22 @@
 
 ## Phase 4: Domain & Data Layers (Generic Post/Item Module)
 
-- [ ] Implement Domain Layer for Post entity:
+- [x] Implement Domain Layer for Post entity:
   - `lib/domain/entities/post_item.dart`: `PostItem` entity with id, title, body, status, and createdAt timestamp.
   - `lib/domain/repositories/post_repository.dart`: Abstract repository contract returning `Future<Either<Failure, List<PostItem>>>`, `Future<Either<Failure, PostItem>>`, `Future<Either<Failure, Unit>>`.
   - `lib/domain/usecases/`:
     - `get_posts_usecase.dart`
     - `create_post_usecase.dart`
     - `delete_post_usecase.dart`
-- [ ] Implement Data Layer:
+- [x] Implement Data Layer:
   - `lib/data/models/post_model.dart`: DTO with `toJson` and `fromJson`, and `toEntity()` mapping.
   - `lib/data/datasources/remote/post_remote_datasource.dart`: Remote data source contract and implementation with simulated/mock REST endpoints.
   - `lib/data/repositories/post_repository_impl.dart`: Repository implementation with try/catch mapping `NetworkException` to `ServerFailure`.
-- [ ] Unit tests for `PostRepositoryImpl` and use cases using mocks.
-- [ ] Run `dart fix --apply`, `dart analyze`, and `flutter test`.
-- [ ] Run `dart format .`.
-- [ ] Update `IMPLEMENTATION.md` Journal section.
-- [ ] Present commit message to user for approval, then commit to `develop`.
+- [x] Unit tests for `PostRepositoryImpl` and use cases using mocks.
+- [x] Run `dart fix --apply`, `dart analyze`, and `flutter test`.
+- [x] Run `dart format .`.
+- [x] Update `IMPLEMENTATION.md` Journal section.
+- [x] Present commit message to user for approval, then commit to `develop`.
 
 ---
 
