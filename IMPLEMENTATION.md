@@ -20,6 +20,7 @@
 
 * **Phase 1 Initiation:** Initializing project structure on branch `develop`, targeting Android & iOS.
 * **Phase 1 Completed:** Generated Flutter app package targeting Android & iOS with application ID `dev.flutter.boilerplate.anantyan`. Configured `pubspec.yaml` version to 0.1.0, created `README.md` and `CHANGELOG.md`. Code formatted with `dart format` and verified with `dart analyze` (0 warnings).
+* **Phase 2 Completed:** Added dependencies (`flutter_bloc`, `equatable`, `auto_route`, `get_it`, `injectable`, `dio`, `dartz`, `flutter_secure_storage`, `intl`, `mocktail`, `bloc_test`). Configured `AppColors`, `AppTextStyles`, `AppTheme` (Light & Dark), `ISecureStorageService` wrapper, and `ThemeBloc` with persistent storage. Verified with 8 passing unit tests, `dart format`, and clean `dart analyze` (0 issues).
 
 ---
 
@@ -39,25 +40,25 @@
 
 ## Phase 2: Core Dependencies, Theming & Secure Storage
 
-- [ ] Add runtime and dev dependencies to `pubspec.yaml`:
+- [x] Add runtime and dev dependencies to `pubspec.yaml`:
   - Runtime: `flutter_bloc: ^9.1.1`, `equatable: ^2.1.0`, `auto_route: ^11.1.0`, `get_it: ^9.2.1`, `injectable: ^2.5.0`, `dio: ^5.11.0`, `dartz: ^0.10.1`, `flutter_secure_storage: ^10.3.1`, `intl: ^0.20.2`.
   - Dev: `build_runner: ^2.4.15`, `injectable_generator: ^2.7.0`, `auto_route_generator: ^10.5.0`, `flutter_lints: ^6.0.0`.
-- [ ] Configure `lib/common/theme/`:
+- [x] Configure `lib/common/theme/`:
   - `app_colors.dart`: Standard Light & Dark palette definitions.
   - `app_text_styles.dart`: Standard typography scale.
   - `app_theme.dart`: `ThemeData` builders for Light & Dark mode.
-- [ ] Configure `lib/common/storage/secure_storage_service.dart`:
+- [x] Configure `lib/common/storage/secure_storage_service.dart`:
   - Hardware-backed secure storage wrapper for Android & iOS.
-- [ ] Implement Theme BLoC in `lib/presentation/theme/`:
+- [x] Implement Theme BLoC in `lib/presentation/theme/`:
   - `theme_event.dart`: LoadInitialTheme, ToggleTheme.
   - `theme_state.dart`: ThemeState carrying `ThemeMode`.
   - `theme_bloc.dart`: Event handling with storage persistence.
-- [ ] Create unit tests for `ThemeBloc` and `SecureStorageService`.
-- [ ] Run `dart fix --apply` and `dart analyze`.
-- [ ] Run `flutter test` to ensure all tests pass.
-- [ ] Run `dart format .`.
-- [ ] Update `IMPLEMENTATION.md` Journal section.
-- [ ] Present commit message to user for approval, then commit to `develop`.
+- [x] Create unit tests for `ThemeBloc` and `SecureStorageService`.
+- [x] Run `dart fix --apply` and `dart analyze`.
+- [x] Run `flutter test` to ensure all tests pass.
+- [x] Run `dart format .`.
+- [x] Update `IMPLEMENTATION.md` Journal section.
+- [x] Present commit message to user for approval, then commit to `develop`.
 
 ---
 
