@@ -17,6 +17,7 @@
 
 * **Phase 1 Initiation:** Initialized feature branch `feature/safe-area-refinement`. Baseline test verification passed (43/43 tests).
 * **Phase 1 Completed:** Implemented `SafeArea(top: false)` and `SingleChildScrollView` inside `CreatePostBottomSheet`. Added widget test asserting both widgets exist in tree. Code clean with `dart analyze` (0 issues), all 44 tests passed, and formatted with `dart format`.
+* **Phase 2 Completed:** Wrapped `Scaffold.body` in `SafeArea(top: false)` in `HomeScreen`. Updated widget test asserting body `SafeArea` predicate. Verified with `dart analyze` (0 issues), all 45 tests passing, and formatted with `dart format`.
 
 ---
 
@@ -35,23 +36,23 @@
 - [x] Re-read `MODIFICATION_IMPLEMENTATION.md` to see what, if anything, has changed in the plan.
 - [x] Update `MODIFICATION_IMPLEMENTATION.md` Journal with actions taken and check off completed items.
 - [x] Use `git diff` to verify changes, prepare commit message, and present to user for approval.
-- [ ] Wait for approval. Commit changes after approval.
-- [ ] Perform hot reload on running app via Marionette or Flutter CLI.
+- [x] Wait for approval. Commit changes after approval.
+- [x] Perform hot reload on running app via Marionette or Flutter CLI.
 
 ---
 
 ## Phase 2: HomeScreen Body SafeArea Integration
 
-- [ ] Refactor `lib/presentation/modules/home/screens/home_screen.dart`:
+- [x] Refactor `lib/presentation/modules/home/screens/home_screen.dart`:
   - Wrap `HomeView`'s `Scaffold.body` (`BlocConsumer<PostBloc, PostState>`) in `SafeArea(top: false)`.
   - Ensure centered states (`PostLoading`, `PostFailure`, empty state) and `ListView.builder` are properly inset from the device bottom gesture bar and side bezels.
-- [ ] Create/modify widget tests in `test/presentation/modules/home/home_screen_test.dart` to verify `SafeArea` widget presence in the tree.
-- [ ] Run `dart fix --apply`.
-- [ ] Run `dart analyze` and ensure 0 issues.
-- [ ] Run `flutter test` to ensure all tests pass.
-- [ ] Run `dart format .`.
-- [ ] Re-read `MODIFICATION_IMPLEMENTATION.md` and update Journal with state and findings.
-- [ ] Use `git diff` to verify changes, prepare commit message, and present to user for approval.
+- [x] Create/modify widget tests in `test/presentation/modules/home/home_screen_test.dart` to verify `SafeArea` widget presence in the tree.
+- [x] Run `dart fix --apply`.
+- [x] Run `dart analyze` and ensure 0 issues.
+- [x] Run `flutter test` to ensure all tests pass.
+- [x] Run `dart format .`.
+- [x] Re-read `MODIFICATION_IMPLEMENTATION.md` and update Journal with state and findings.
+- [x] Use `git diff` to verify changes, prepare commit message, and present to user for approval.
 - [ ] Wait for approval. Commit changes after approval.
 - [ ] Perform hot reload on running app.
 
