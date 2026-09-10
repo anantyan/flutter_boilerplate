@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2026-09-10
+
+### Added
+- **SafeArea Integration**:
+  - Wrapped `CreatePostBottomSheet` in `SafeArea(top: false)` and `SingleChildScrollView` combined with `MediaQuery.viewInsetsOf(context).bottom` to cleanly elevate the form above the iOS Home Indicator and prevent keyboard overflow.
+  - Wrapped `HomeScreen` body in `SafeArea(top: false)` to protect list items, loading spinners, and empty states from gesture bars and bottom screen intrusions.
+  - Expanded automated test suite with widget tests asserting `SafeArea` presence (45/45 passing tests).
+  - Validated via live end-to-end automation with Marionette MCP on iPhone 17 Pro.
+
 ## [0.1.0] - 2026-09-10
 
 ### Added
