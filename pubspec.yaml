@@ -1,0 +1,19 @@
+name: flutter_boilerplate
+description: "A robust, scalable Clean Architecture Flutter boilerplate with BLoC, AutoRoute, Injectable, and Dio."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
